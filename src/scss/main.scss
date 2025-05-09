@@ -1,31 +1,5 @@
-// src/scss/main.scss
-$primary-color: blue;
-$secondary-color: green;
+$primary-color: #1e40af;
 
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: $primary-color;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  color: $secondary-color;
-  border-bottom: 2px solid $primary-color;
-  padding-bottom: 10px;
-}
-
-.custom-class {
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: darken(#f0f0f0, 10%);
-    transform: scale(1.02);
-  }
+  background-color: $primary-color;
 }
