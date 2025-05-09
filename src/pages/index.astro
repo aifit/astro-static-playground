@@ -1,28 +1,10 @@
 ---
-import '../scss/main.scss';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import bannerImage from '../assets/banner/600x400.png';
 ---
-<style lang="scss">
-  .custom-class {
-    color: red;
-    font-weight: bold;
-  }
-</style>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-		<script src="../js/main.js"></script>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<div class="custom-class">
-			sdasdasd
-		</div>
-		<img src={bannerImage.src} alt="test">
-	</body>
-</html>
+<BaseLayout>
+  <h1 class="p-4 bg-sky-500/100">Tailwind is working!</h1>
+  <div class="custom-class">SCSS works too</div>
+  <img src={bannerImage.src} alt="test" />
+</BaseLayout>
