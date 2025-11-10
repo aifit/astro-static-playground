@@ -1,15 +1,17 @@
 ---
 import '../styles/tailwind.css';
 import '../scss/main.scss';
----
+import SEO from '../components/SEO.astro';
 
+const { title = 'Default Title', description = 'Default description' } = Astro.props;
+---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <title>Astro</title>
     <script src="../js/main.js"></script>
+    <SEO title={title} description={description} />
   </head>
   <body>
     <slot />

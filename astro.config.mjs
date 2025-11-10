@@ -1,34 +1,40 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import vue from '@astrojs/vue';
+import tailwind from '@astrojs/tailwind';
 
-// const now = new Date();
-// const pad = (n) => String(n).padStart(2, '0');
-// const timestamp = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+// js framework integrations
+import vue from '@astrojs/vue';
+import react from '@astrojs/react';
+
+
+const now = new Date();
+/** @param {number} n */
+const pad = (n) => String(n).padStart(2, '0');
+const timestamp = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
+  integrations: [vue(), tailwind(), react()],
   compressHTML: false,
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
     },
   },
-  // build: {
-  //   assets: 'public',
-  // },
-  // vite: {
-  //   build: {
-  //     minify: false,
-  //     assetsInlineLimit: 0,
-  //     rollupOptions: {
-  //       output: {
-  //         entryFileNames: `public/[name].${timestamp}.js`,
-  //         assetFileNames: `public/[name].${timestamp}[extname]`,
-  //       }
-  //     }
-  //   }
-  // }
+  build: {
+    assets: '_assets',
+  },
+  vite: {
+    build: {
+      minify: true,
+      assetsInlineLimit: 0,
+      rollupOptions: {
+        output: {
+          entryFileNames: `_assets/[name].${timestamp}.js`,
+          assetFileNames: `_assets/[name].${timestamp}[extname]`,
+        }
+      }
+    }
+  }
 });

@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ReactCounter from "../components/ReactCounter.jsx";
+
+const title = "About — My Site";
+const description = "About page description";
+---
+
+<BaseLayout title={title} description={description}>
+  <h1 class="p-4 bg-sky-500/100">About page</h1>
+  <div class="custom-class">Description</div>
+  <ReactCounter client:load />
+</BaseLayout>

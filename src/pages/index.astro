@@ -1,10 +1,19 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import bannerImage from '../assets/banner/600x400.png';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import bannerImage from "../assets/banner/600x400.png";
+import VueCounter from "../components/VueCounter.vue";
+
+const title = "Home — My Site";
+const description = "Welcome to the home page.";
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
   <h1 class="p-4 bg-sky-500/100">Tailwind is working!</h1>
   <div class="custom-class">SCSS works too</div>
+  <a href="/about" class="p-4">Link to About page</a>
   <img src={bannerImage.src} alt="test" />
+
+  <VueCounter client:load initial={0} label="Counter">
+    Slot here
+  </VueCounter>
 </BaseLayout>
