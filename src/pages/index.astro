@@ -10,10 +10,17 @@ const description = "Welcome to the home page.";
 <BaseLayout title={title} description={description}>
   <h1 class="p-4 bg-sky-500/100">Tailwind is working!</h1>
   <div class="custom-class">SCSS works too</div>
-  <a href="/about" class="p-4">Link to About page</a>
+  <div class="flex justify-center space-x-4">
+    <div class="p-4">
+      <a class="text-blue-700 hover:text-blue-800" href="/about"
+        >Link to About page</a>
+    </div>
+    <div class="p-4">
+      <a class="text-blue-700 hover:text-blue-800"  href="/pokemon"
+        >Link to Pokemon</a>
+    </div>
+  </div>
   <img src={bannerImage.src} alt="test" />
 
-  <VueCounter client:load initial={0} label="Counter">
-    Slot here
-  </VueCounter>
+  <VueCounter client:load initial={0} label="Counter"> Slot here </VueCounter>
 </BaseLayout>
