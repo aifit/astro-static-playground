@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SEO from "../components/SEO.astro";
 import PokemonList from "../components/PokemonList.vue";
 
-const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=999999");
+const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
 const data = await res.json();
 const pokemons = data.results || [];
 ---

@@ -2,9 +2,21 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SEO from "../../components/SEO.astro";
 
+// https://pokeapi.co/docs/v2
+interface PokemonListResponse {
+  results: { name: string; url: string }[];
+}
+interface PokemonDetail {
+  name: string;
+  height: number;
+  weight: number;
+  sprites?: { front_default?: string };
+  types: { slot: number; type: { name: string } }[];
+}
+
 export async function getStaticPaths() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=999999");
-  const data = await res.json();
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+  const data = (await res.json()) as PokemonListResponse;
   return data.results.map((p) => ({ params: { name: p.name } }));
 }
 
@@ -13,7 +25,7 @@ const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
 if (!res.ok) {
   throw new Error(`Failed to load pokemon ${name}`);
 }
-const pokemon = await res.json();
+const pokemon = (await res.json()) as PokemonDetail;
 ---
 
 <BaseLayout
@@ -32,7 +44,7 @@ const pokemon = await res.json();
     <p>Weight: {pokemon.weight}</p>
     <h2 class="mt-4 font-semibold">Types</h2>
     <ul>
-      {pokemon.types.map((t) => <li key={t.slot}>{t.type.name}</li>)}
+      {pokemon.types.map((t) => <li>{t.type.name}</li>)}
     </ul>
   </main>
 </BaseLayout>
