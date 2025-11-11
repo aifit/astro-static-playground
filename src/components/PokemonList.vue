@@ -24,9 +24,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const props = defineProps({
-  pokemons: { type: Array, default: () => [] }
+const props = withDefaults(defineProps<{
+  pokemons: { name: string; url: string }[]
+}>(), {
+  pokemons: () => []
 })
+
 
 const query = ref('')
 
