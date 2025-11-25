@@ -7,7 +7,7 @@ A `/dist` folder is included so the built output can be viewed directly.
 
 ## Demo Video (YouTube)
 
-[![Coming soon](https://img.youtube.com/vi/______/hqdefault.jpg)](https://youtu.be/_____)
+Coming soon
 
 ## Stack
 
