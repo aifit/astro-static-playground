@@ -1,4 +1,26 @@
-# Astro Static Site
+# Astro Static Playground
 
-A simple static site built with Astro, Tailwind CSS, SCSS, and a small Vue & React component for interactivity.
+This repository is a small playground for exploring Astro with React, Vue, Tailwind CSS, and SCSS.
+Nothing here is final - it's just a space to try things out and experiment.
 
+## Stack
+
+- Astro
+- React 19
+- Vue 3
+- Tailwind CSS
+- Sass (SCSS)
+
+## Installation
+
+```
+pnpm install
+```
+
+## Scripts
+
+```bash
+pnpm dev      # Start dev server
+pnpm build    # Build for production
+pnpm preview  # Preview the build
+```
