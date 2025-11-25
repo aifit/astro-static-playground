@@ -3,6 +3,8 @@
 This repository is a small playground for exploring Astro with React, Vue, Tailwind CSS, and SCSS.
 Nothing here is final - it's just a space to try things out and experiment.
 
+A `/dist` folder is included so the built output can be viewed directly.
+
 ## Stack
 
 - Astro
