@@ -5,6 +5,10 @@ Nothing here is final - it's just a space to try things out and experiment.
 
 A `/dist` folder is included so the built output can be viewed directly.
 
+## Demo Video (YouTube)
+
+[![Watch the video](https://img.youtube.com/vi/hwTcFZ47T70/hqdefault.jpg)](https://youtu.be/hwTcFZ47T70)
+
 ## Stack
 
 - Astro
