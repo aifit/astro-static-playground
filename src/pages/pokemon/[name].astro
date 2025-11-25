@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SEO from "../../components/SEO.astro";
 
 // https://pokeapi.co/docs/v2
 interface PokemonListResponse {
@@ -15,7 +14,7 @@ interface PokemonDetail {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data = (await res.json()) as PokemonListResponse;
   return data.results.map((p) => ({ params: { name: p.name } }));
 }
@@ -26,19 +25,28 @@ if (!res.ok) {
   throw new Error(`Failed to load pokemon ${name}`);
 }
 const pokemon = (await res.json()) as PokemonDetail;
+
+const title = "Pokémon — My Site";
+const description = "detail page.";
 ---
 
 <BaseLayout
-  title={`${pokemon.name} — Pokémon`}
-  description={`Detail ${pokemon.name}`}
+  title={`${pokemon.name} — ${title}`}
+  description={`Detail ${pokemon.name} — ${description}`}
 >
-  <SEO
-    title={`${pokemon.name} — Pokémon`}
-    description={`Detail ${pokemon.name}`}
-  />
-  <main class="p-4">
-    <a class="text-sm text-sky-600" href="/">← Back</a>
-    <h1 class="text-3xl font-bold mt-4 mb-2">{pokemon.name}</h1>
+  <div class="p-2 bg-sky-100 mb-4 shadow rounded inline-block">
+    <a href="/pokemon">← Back</a>
+  </div>
+
+  <h1 class="p-4 bg-sky-500/100 shadow rounded">{pokemon.name} — {title}</h1>
+  <div class="custom-class">
+    <span class="font-bold">{pokemon.name}</span> {description}
+  </div>
+
+  <div class="p-4 bg-white shadow rounded mt-4">
+    <h1 class="text-2xl font-bold mb-2">
+      {pokemon.name}
+    </h1>
     <img src={pokemon.sprites?.front_default} alt={pokemon.name} class="mb-4" />
     <p>Height: {pokemon.height}</p>
     <p>Weight: {pokemon.weight}</p>
@@ -46,5 +54,5 @@ const pokemon = (await res.json()) as PokemonDetail;
     <ul>
       {pokemon.types.map((t) => <li>{t.type.name}</li>)}
     </ul>
-  </main>
+  </div>
 </BaseLayout>

@@ -1,17 +1,32 @@
 <template>
   <div class="p-4 bg-white shadow rounded text-center">
-    <div class="text-sm text-gray-500 mb-2">{{ label }}</div>
+    <div class="text-base mb-2 font-bold">{{ label }}</div>
     <div class="text-2xl font-bold mb-2">{{ count }}</div>
-    <div class="text-sm text-gray-400 mb-4">Double: {{ double }}</div>
-    <button @click="increment" class="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600">
-      Increment
-    </button>
-    <slot />
+    <div class="flex items-center justify-center gap-2 mt-4">
+      <button
+        class="p-2 bg-sky-200 cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
+        @click="decrement"
+      >
+        -
+      </button>
+      <button
+        class="p-2 bg-rose-200 cursor-pointer flex h-[30px] items-center justify-center"
+        @click="reset"
+      >
+        reset
+      </button>
+      <button
+        class="p-2 bg-sky-200 cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
+        @click="increment"
+      >
+        +
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
   initial: { type: Number, default: 0 },
@@ -19,9 +34,16 @@ const props = defineProps({
 })
 
 const count = ref(props.initial)
-const double = computed(() => count.value * 2)
 
 function increment() {
   count.value++
+}
+
+function reset() {
+  count.value = props.initial
+}
+
+function decrement() {
+  count.value--
 }
 </script>

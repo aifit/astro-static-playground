@@ -1,0 +1,75 @@
+<template>
+  <div
+    class="cursor-pointer w-full"
+    tabindex="0"
+    @click.stop="handleClick"
+    @keydown.enter.stop="handleClick"
+  >
+    <div class="rounded transition-all">
+
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between px-4 py-3 select-none bg-white shadow rounded text-center"
+        :class="isExpanded ? 'rounded-b-none' : undefined"
+      >
+        <div class="flex items-center grow">
+          <div class="text-base font-bold">
+            <slot name="title" />
+          </div>
+        </div>
+
+        <div class="text-xl leading-none">
+          <span>{{ isExpanded ? '-' : '+' }}</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div
+        v-show="isExpanded"
+        class="px-4 pb-4 text-sm text-gray-700 bg-white"
+        :class="isExpanded ? 'rounded-b' : undefined"
+      >
+        <slot name="content" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+
+const props = withDefaults(
+  defineProps<{
+    id?: number | string
+    isActive?: boolean
+  }>(),
+  {
+    id: 0,
+    isActive: false,
+  }
+)
+
+const isExpanded = ref(false)
+
+watch(
+  () => props.isActive,
+  value => {
+    isExpanded.value = !!value
+  },
+  {
+    immediate: true,
+  }
+)
+
+const emit = defineEmits<{
+  (e: 'click', id: number | string, value: object): void
+}>()
+
+const handleClick = () => {
+  isExpanded.value = !isExpanded.value
+  console.log(props.id)
+  emit('click', props.id, isExpanded)
+}
+
+defineExpose({ isExpanded, handleClick })
+</script>

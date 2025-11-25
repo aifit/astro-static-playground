@@ -8,12 +8,28 @@ export default function Counter({ initial = 0, step = 1 }) {
   const reset = () => setCount(initial);
 
   return (
-    <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-      <div style={{ fontSize: 20 }}>{count}</div>
-      <div>
-        <button onClick={dec}>-</button>
-        <button onClick={reset} style={{ margin: '0 8px' }}>reset</button>
-        <button onClick={inc}>+</button>
+    <div className="p-4 bg-white shadow rounded text-center">
+      <div className="text-base mb-2 font-bold">ReactCounter</div>
+      <div className="text-2xl font-bold mb-2">{count}</div>
+      <div className="flex items-center justify-center gap-2 mt-4">
+        <button
+          className="p-2 bg-sky-200 cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
+          onClick={dec}
+        >
+          -
+        </button>
+        <button
+          className="p-2 bg-rose-200 cursor-pointer flex h-[30px] items-center justify-center"
+          onClick={reset}
+        >
+          reset
+        </button>
+        <button
+          className="p-2 bg-sky-200 cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
+          onClick={inc}
+        >
+          +
+        </button>
       </div>
     </div>
   );

@@ -1,17 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SEO from "../components/SEO.astro";
 import PokemonList from "../components/PokemonList.vue";
 
-const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
 const data = await res.json();
 const pokemons = data.results || [];
+
+const title = "Pokémon — My Site";
+const description = "Pokémon page description.";
 ---
 
-<BaseLayout title="Pokémon — List" description="Daftar Pokémon">
-  <SEO title="Pokémon List" description="Daftar Pokémon" />
-  <main class="p-4">
-    <h1 class="text-2xl font-bold mb-4">Pokémon List</h1>
-    <PokemonList client:load pokemons={pokemons} />
-  </main>
+<BaseLayout title={title} description={description}>
+  <h1 class="p-4 bg-sky-500/100 shadow rounded">{title}</h1>
+  <div class="custom-class">{description}</div>
+  <div class="mb-60">
+    <PokemonList client:load pokemons={pokemons}>
+  </div>
 </BaseLayout>

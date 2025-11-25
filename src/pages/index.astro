@@ -2,25 +2,42 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import bannerImage from "../assets/banner/600x400.png";
 import VueCounter from "../components/VueCounter.vue";
+import VueAccordion from "../components/VueAccordion.vue";
+import ReactCounter from "../components/ReactCounter.jsx";
 
 const title = "Home — My Site";
 const description = "Welcome to the home page.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1 class="p-4 bg-sky-500/100">Tailwind is working!</h1>
-  <div class="custom-class">SCSS works too</div>
-  <div class="flex justify-center space-x-4">
-    <div class="p-4">
-      <a class="text-blue-700 hover:text-blue-800" href="/about"
-        >Link to About page</a>
+  <h1 class="p-4 bg-sky-500/100 shadow rounded">Tailwind is working</h1>
+  <h1 class="custom-class">SCSS works too</h1>
+
+  <div class="bg-slate-400 p-4 shadow rounded">
+    <div class="flex items-center justify-center gap-4">
+      <VueCounter client:load initial={0} label="VueCounter" />
+      <ReactCounter client:load />
     </div>
-    <div class="p-4">
-      <a class="text-blue-700 hover:text-blue-800"  href="/pokemon"
-        >Link to Pokemon</a>
+    <div class="flex items-center justify-center gap-4 mt-4">
+      <VueAccordion client:load>
+        <!-- How to use vue slot in Astro: -->
+        <!-- https://github.com/withastro/astro/issues/5801#issuecomment-1433064179 -->
+        <div slot="title">VueAccordion</div>
+        <div slot="content">
+          <div class="mb-2">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industrys standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </div>
+        </div>
+      </VueAccordion>
     </div>
   </div>
-  <img src={bannerImage.src} alt="test" />
 
-  <VueCounter client:load initial={0} label="Counter"> Slot here </VueCounter>
+  <div
+    class="bg-white shadow rounded p-4 flex items-center justify-center mb-60 mt-4"
+  >
+    <img src={bannerImage.src} alt="test" />
+  </div>
 </BaseLayout>

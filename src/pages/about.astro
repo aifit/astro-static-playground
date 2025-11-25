@@ -1,13 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ReactCounter from "../components/ReactCounter.jsx";
 
 const title = "About — My Site";
-const description = "About page description";
+const description = "About page description.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1 class="p-4 bg-sky-500/100">About page</h1>
-  <div class="custom-class">Description</div>
-  <ReactCounter client:load />
+  <h1 class="p-4 bg-sky-500/100 shadow rounded">{title}</h1>
+  <div class="custom-class">{description}</div>
+  <div class="p-4 bg-white shadow rounded">
+    <h1>Title</h1>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industrys standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book.
+    </p>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industrys standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book.
+    </p>
+  </div>
 </BaseLayout>

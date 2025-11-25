@@ -1,10 +1,19 @@
-$primary-color: yellow;
+$primary-color: lightgreen;
 
 body {
   background-color: $primary-color;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+p {
+  @apply mb-2;
+}
+
+h1 {
+  @apply text-xl font-bold mb-2;
+}
+
 .custom-class {
-  @apply p-4 bg-rose-400;
+  @apply p-4 bg-rose-400 shadow rounded;
+  margin: 10px 0;
 }

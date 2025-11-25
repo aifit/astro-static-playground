@@ -1,19 +1,42 @@
 ---
-import '../styles/tailwind.css';
-import '../scss/main.scss';
-import SEO from '../components/SEO.astro';
+import "../styles/tailwind.css";
+import "../scss/main.scss";
 
-const { title = 'Default Title', description = 'Default description' } = Astro.props;
+const { title = "Default Title", description = "Default description" } =
+  Astro.props;
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <script src="../js/main.js"></script>
-    <SEO title={title} description={description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
   </head>
   <body>
-    <slot />
+    <nav
+      class="flex justify-center space-x-4 bg-white border-b border-b-orange-900 top-0 sticky"
+    >
+      <div class="p-4">
+        <a class="text-blue-700 hover:text-blue-800" href="/"
+          >Link to Homepage</a
+        >
+      </div>
+      <div class="p-4">
+        <a class="text-blue-700 hover:text-blue-800" href="/about"
+          >Link to About page</a
+        >
+      </div>
+      <div class="p-4">
+        <a class="text-blue-700 hover:text-blue-800" href="/pokemon"
+          >Link to Pokémon</a
+        >
+      </div>
+    </nav>
+    <main class="p-4">
+      <slot />
+    </main>
   </body>
 </html>
