@@ -1,16 +1,14 @@
 <template>
-  <div
-    class="cursor-pointer w-full"
-    tabindex="0"
-    @click.stop="handleClick"
-    @keydown.enter.stop="handleClick"
-  >
+  <div class="cursor-pointer w-full">
     <div class="rounded transition-all border border-slate-500">
 
       <!-- Header -->
       <div
         class="flex items-center justify-between px-4 py-3 select-none bg-white shadow rounded text-center hover:bg-sky-100"
         :class="isExpanded ? 'rounded-b-none bg-sky-100 hover:bg-sky-200' : undefined"
+        tabindex="0"
+        @click.stop="handleClick"
+        @keydown.enter.stop="handleClick"
       >
         <div class="flex items-center grow">
           <div class="text-base font-bold">
@@ -26,7 +24,7 @@
       <!-- Body -->
       <div
         v-show="isExpanded"
-        class="px-4 py-4 text-sm text-gray-700 bg-white"
+        class="px-4 py-4 text-sm text-gray-700 bg-white cursor-[initial]"
         :class="isExpanded ? 'rounded-b' : undefined"
       >
         <slot name="content" />
