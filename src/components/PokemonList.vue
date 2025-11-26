@@ -10,7 +10,7 @@
 
     <ul class="space-y-2">
       <li v-for="p in filtered" :key="p.name" class="flex items-center justify-between">
-        <a :href="`/pokemon/${p.name}`" class="text-sky-600 hover:underline">{{ p.name }}</a>
+        <a :href="`/pokemon/${p.name}`" class="text-blue-700 hover:text-blue-800 hover:underline">{{ p.name }}</a>
         <small class="text-sm text-gray-500">{{ shortUrl(p.url) }}</small>
       </li>
     </ul>

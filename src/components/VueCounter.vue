@@ -4,19 +4,19 @@
     <div class="text-2xl font-bold mb-2">{{ count }}</div>
     <div class="flex items-center justify-center gap-2 mt-4">
       <button
-        class="p-2 bg-sky-800 text-white cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
+        class="p-2 bg-sky-800 hover:bg-sky-700 text-white cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
         @click="decrement"
       >
         &minus;
       </button>
       <button
-        class="p-2 bg-red-600 text-white cursor-pointer flex h-[30px] items-center justify-center"
+        class="p-2 bg-red-600 hover:bg-red-500 text-white cursor-pointer flex h-[30px] items-center justify-center"
         @click="reset"
       >
         reset
       </button>
       <button
-        class="p-2 bg-sky-800 text-white cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
+        class="p-2 bg-sky-800 hover:bg-sky-700 text-white cursor-pointer w-[30px] h-[30px] flex items-center justify-center"
         @click="increment"
       >
         +

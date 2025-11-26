@@ -10,7 +10,7 @@
       <!-- Header -->
       <div
         class="flex items-center justify-between px-4 py-3 select-none bg-white shadow rounded text-center hover:bg-sky-100"
-        :class="isExpanded ? 'rounded-b-none bg-sky-100' : undefined"
+        :class="isExpanded ? 'rounded-b-none bg-sky-100 hover:bg-sky-200' : undefined"
       >
         <div class="flex items-center grow">
           <div class="text-base font-bold">
