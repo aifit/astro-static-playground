@@ -5,12 +5,12 @@
     @click.stop="handleClick"
     @keydown.enter.stop="handleClick"
   >
-    <div class="rounded transition-all">
+    <div class="rounded transition-all border border-slate-500">
 
       <!-- Header -->
       <div
-        class="flex items-center justify-between px-4 py-3 select-none bg-white shadow rounded text-center"
-        :class="isExpanded ? 'rounded-b-none' : undefined"
+        class="flex items-center justify-between px-4 py-3 select-none bg-white shadow rounded text-center hover:bg-sky-100"
+        :class="isExpanded ? 'rounded-b-none bg-sky-100' : undefined"
       >
         <div class="flex items-center grow">
           <div class="text-base font-bold">
@@ -19,14 +19,14 @@
         </div>
 
         <div class="text-xl leading-none">
-          <span>{{ isExpanded ? '-' : '+' }}</span>
+          <span>{{ isExpanded ? '&minus;' : '&plus;' }}</span>
         </div>
       </div>
 
       <!-- Body -->
       <div
         v-show="isExpanded"
-        class="px-4 pb-4 text-sm text-gray-700 bg-white"
+        class="px-4 py-4 text-sm text-gray-700 bg-white"
         :class="isExpanded ? 'rounded-b' : undefined"
       >
         <slot name="content" />

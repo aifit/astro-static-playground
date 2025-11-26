@@ -10,10 +10,12 @@ const description = "Welcome to the home page.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1 class="p-4 bg-sky-500/100 shadow rounded">Tailwind is working</h1>
+  <h1 class="border border-sky-600 p-4 bg-neutral-100 shadow rounded">
+    Tailwind is working
+  </h1>
   <h1 class="custom-class">SCSS works too</h1>
 
-  <div class="bg-slate-400 p-4 shadow rounded">
+  <div class="bg-slate-400 p-4 shadow rounded border border-sky-600">
     <div class="flex items-center justify-center gap-4">
       <VueCounter client:load initial={0} label="VueCounter" />
       <ReactCounter client:load />
@@ -36,7 +38,7 @@ const description = "Welcome to the home page.";
   </div>
 
   <div
-    class="bg-white shadow rounded p-4 flex items-center justify-center mb-60 mt-4"
+    class="bg-white shadow inline-flex rounded p-4 items-center justify-center mb-60 mt-4 border border-sky-600"
   >
     <img src={bannerImage.src} alt="test" />
   </div>

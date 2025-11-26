@@ -4,7 +4,7 @@
       <input
         v-model="query"
         placeholder="Search Pokémon..."
-        class="w-full px-3 py-2 border rounded"
+        class="w-full px-3 py-2 border rounded border-sky-600"
       />
     </div>
 

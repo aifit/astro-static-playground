@@ -6,9 +6,11 @@ const description = "About page description.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1 class="p-4 bg-sky-500/100 shadow rounded">{title}</h1>
+  <h1 class="border border-sky-600 p-4 bg-neutral-100 shadow rounded">
+    {title}
+  </h1>
   <div class="custom-class">{description}</div>
-  <div class="p-4 bg-white shadow rounded">
+  <div class="p-4 bg-white shadow rounded border border-sky-600">
     <h1>Title</h1>
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.

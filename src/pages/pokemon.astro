@@ -11,9 +11,11 @@ const description = "Pokémon page description.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1 class="p-4 bg-sky-500/100 shadow rounded">{title}</h1>
+  <h1 class="border border-sky-600 p-4 bg-neutral-100 shadow rounded">
+    {title}
+  </h1>
   <div class="custom-class">{description}</div>
-  <div class="mb-60">
-    <PokemonList client:load pokemons={pokemons}>
+  <div class="mb-60 border border-sky-600">
+    <PokemonList client:load pokemons={pokemons} />
   </div>
 </BaseLayout>
